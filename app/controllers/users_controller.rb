@@ -7,6 +7,15 @@ class UsersController < ApplicationController
   end
 
   def create
+    user = User.new(user_params)
+    if user.save
+      flash[:notice] = "Sucessfully registered to NewDeal!"
+      session[:user_id] = user.id
+      redirect_to '/'
+    else
+      flash[:alert] = "Uh oh! Something went wrong with your account"  
+      redirect_to '/signup'
+    end
   end
 
   def show
@@ -18,5 +27,10 @@ class UsersController < ApplicationController
   def update
   end
 
+private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :country, :avatar)
+  end
 
 end

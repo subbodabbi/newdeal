@@ -45,12 +45,14 @@ gem 'acts_as_votable', '~> 0.10.0'
 # Front-end gems
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# Misc gems
+gem 'country_select'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-given'
   gem 'byebug'
-  gem 'spring'
   gem 'shoulda-matchers'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
